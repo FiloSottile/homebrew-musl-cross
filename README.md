@@ -7,8 +7,9 @@ brew install FiloSottile/musl-cross/musl-cross
 ```
 
 By default it will build a full cross compiler toolchain targeting musl Linux amd64
-using https://github.com/richfelker/musl-cross-make.
-(It takes a while, a cup of coffee won't do. Going for a run might if you are more fit than me.)
+using [richfelker/musl-cross-make](https://github.com/richfelker/musl-cross-make).
+
+(It takes a while, getting a cup of coffee won't do. Going for a run might if you are more fit than me.)
 
 You can then use `x86_64-linux-musl-` versions of the tools to build for the target.
 For example `x86_64-linux-musl-cc` will compile C code to run on musl Linux amd64.
