@@ -13,6 +13,7 @@ class MuslCross < Formula
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
+  option "with-mips", "Build cross-compilers targeting mips-linux-musl"
 
   depends_on "gnu-sed" => :build
   depends_on "homebrew/dupes/make" => :build
@@ -74,6 +75,9 @@ class MuslCross < Formula
     if build.with? "i486"
       targets.push "i486-linux-musl"
     end
+    if build.with? "mips"
+      targets.push "mips-linux-musl"
+    end
 
     (buildpath/"resources").mkpath
     resources.each do |resource|
@@ -129,6 +133,9 @@ class MuslCross < Formula
     end
     if build.with? "arm"
       system "#{bin}/arm-linux-musleabi-cc", (testpath/"hello.c")
+    end
+    if build.with? "mips"
+      system "${bin}/mips-linux-musl-cc", (testpath/"hello.c")
     end
   end
 end
