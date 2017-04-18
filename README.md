@@ -24,6 +24,6 @@ Other architectures are supported. For example to get a Raspberry Pi cross-compi
 brew install FiloSottile/musl-cross/musl-cross --without-x86_64 --with-arm-hf
 ```
 
-You can also use `--with-i486` (x86 32-bit), `--with-arm` (ARM soft-float) and `--with-mips`.
+You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit), `--with-arm` (ARM soft-float) and `--with-mips`.
 
 Only tested on Sierra.
