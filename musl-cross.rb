@@ -10,6 +10,7 @@ class MuslCross < Formula
     cellar :any_skip_relocation
   end
 
+  option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
@@ -66,6 +67,9 @@ class MuslCross < Formula
       targets = ["x86_64-linux-musl"]
     else
       targets = []
+    end
+    if build.with? "aarch64"
+      targets.push "aarch64-linux-musl"
     end
     if build.with? "arm-hf"
       targets.push "arm-linux-musleabihf"
@@ -128,6 +132,9 @@ class MuslCross < Formula
     end
     if build.with? "i486"
       system "#{bin}/i486-linux-musl-cc", (testpath/"hello.c")
+    end
+    if build.with? "aarch64"
+      system "#{bin}/aarch64-linux-musl-cc", (testpath/"hello.c")
     end
     if build.with? "arm-hf"
       system "#{bin}/arm-linux-musleabihf-cc", (testpath/"hello.c")
