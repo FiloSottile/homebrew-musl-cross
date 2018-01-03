@@ -18,7 +18,7 @@ class MuslCross < Formula
   option "with-mips", "Build cross-compilers targeting mips-linux-musl"
 
   depends_on "gnu-sed" => :build
-  depends_on "homebrew/dupes/make" => :build
+  depends_on "make" => :build
 
   resource "linux-4.4.10.tar.xz" do
     url "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.10.tar.xz"
