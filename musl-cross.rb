@@ -1,9 +1,9 @@
 class MuslCross < Formula
   desc "Linux cross compilers based on musl libc"
   homepage "https://github.com/richfelker/musl-cross-make"
-  version "0.9.5"
-  url "https://github.com/richfelker/musl-cross-make/archive/v0.9.5a.tar.gz"
-  sha256 "2ba7bf325a287b8c59da38fa68ac5db106e71db16d25a355fe773ff5c0ac7e7f"
+  version "0.9.7"
+  url "https://github.com/richfelker/musl-cross-make/archive/v0.9.7.tar.gz"
+  sha256 "876173e2411b5f50516723c63075655a9aac55ee3804f91adfb61f0a85af8f38"
   head "https://github.com/richfelker/musl-cross-make.git"
 
   bottle do
@@ -14,8 +14,8 @@ class MuslCross < Formula
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
-  option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
   option "with-mips", "Build cross-compilers targeting mips-linux-musl"
+  option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
   depends_on "gnu-sed" => :build
   depends_on "make" => :build
@@ -40,9 +40,9 @@ class MuslCross < Formula
     sha256 "a8109865f2893f1373b0a8ed5ff7429de8db696fc451b1036bd7bdf95bbeffd6"
   end
 
-  resource "musl-1.1.16.tar.gz" do
-    url "https://www.musl-libc.org/releases/musl-1.1.16.tar.gz"
-    sha256 "937185a5e5d721050306cf106507a006c3f1f86d86cd550024ea7be909071011"
+  resource "musl-1.1.18.tar.gz" do
+    url "https://www.musl-libc.org/releases/musl-1.1.18.tar.gz"
+    sha256 "d017ee5d01aec0c522a1330fdff06b1e428cb409e1db819cc4935d5da4a5a118"
   end
 
   resource "binutils-2.27.tar.bz2" do
@@ -89,7 +89,7 @@ class MuslCross < Formula
       cp resource.fetch, buildpath/"resources"/resource.name
     end
 
-    (buildpath/"config.mak").write <<-EOS.undent
+    (buildpath/"config.mak").write <<-EOS
     SOURCES = #{buildpath/"resources"}
     OUTPUT = #{libexec}
 

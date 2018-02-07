@@ -26,4 +26,4 @@ brew install FiloSottile/musl-cross/musl-cross --without-x86_64 --with-arm-hf
 
 You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit), `--with-arm` (ARM soft-float) and `--with-mips`.
 
-Only tested on Sierra.
+Only tested on macOS High Sierra.
