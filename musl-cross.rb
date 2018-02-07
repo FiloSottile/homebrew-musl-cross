@@ -1,13 +1,14 @@
 class MuslCross < Formula
   desc "Linux cross compilers based on musl libc"
   homepage "https://github.com/richfelker/musl-cross-make"
-  version "0.9.7"
   url "https://github.com/richfelker/musl-cross-make/archive/v0.9.7.tar.gz"
   sha256 "876173e2411b5f50516723c63075655a9aac55ee3804f91adfb61f0a85af8f38"
   head "https://github.com/richfelker/musl-cross-make.git"
 
   bottle do
+    root_url "https://dl.bintray.com/filosottile/generic"
     cellar :any_skip_relocation
+    sha256 "85dd4b73749b03c56adbf6bd3af9c191673a42257fd2d417c05adad87973d5f3" => :high_sierra
   end
 
   option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
@@ -26,17 +27,17 @@ class MuslCross < Formula
   end
 
   resource "mpfr-3.1.4.tar.bz2" do
-    url "https://ftpmirror.gnu.org/mpfr/mpfr-3.1.4.tar.bz2"
+    url "https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.4.tar.bz2"
     sha256 "d3103a80cdad2407ed581f3618c4bed04e0c92d1cf771a65ead662cc397f7775"
   end
 
   resource "mpc-1.0.3.tar.gz" do
-    url "https://ftpmirror.gnu.org/mpc/mpc-1.0.3.tar.gz"
+    url "https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz"
     sha256 "617decc6ea09889fb08ede330917a00b16809b8db88c29c31bfbb49cbf88ecc3"
   end
 
   resource "gmp-6.1.1.tar.bz2" do
-    url "https://ftpmirror.gnu.org/gmp/gmp-6.1.1.tar.bz2"
+    url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.bz2"
     sha256 "a8109865f2893f1373b0a8ed5ff7429de8db696fc451b1036bd7bdf95bbeffd6"
   end
 
@@ -46,17 +47,17 @@ class MuslCross < Formula
   end
 
   resource "binutils-2.27.tar.bz2" do
-    url "https://ftpmirror.gnu.org/binutils/binutils-2.27.tar.bz2"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.bz2"
     sha256 "369737ce51587f92466041a97ab7d2358c6d9e1b6490b3940eb09fb0a9a6ac88"
   end
 
   resource "config.sub" do
-    url "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=3d5db9ebe860"
+    url "https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=3d5db9ebe860"
     sha256 "75d5d255a2a273b6e651f82eecfabf6cbcd8eaeae70e86b417384c8f4a58d8d3"
   end
 
   resource "gcc-6.3.0.tar.bz2" do
-    url "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
     sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
   end
 
