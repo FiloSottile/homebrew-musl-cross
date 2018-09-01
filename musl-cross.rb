@@ -4,6 +4,7 @@ class MuslCross < Formula
   url "https://github.com/richfelker/musl-cross-make/archive/v0.9.7.tar.gz"
   sha256 "876173e2411b5f50516723c63075655a9aac55ee3804f91adfb61f0a85af8f38"
   head "https://github.com/richfelker/musl-cross-make.git"
+  revision 1
 
   bottle do
     root_url "https://dl.bintray.com/filosottile/generic"
@@ -61,6 +62,11 @@ class MuslCross < Formula
     sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
   end
 
+  resource "isl-0.15.tar.bz2" do
+    url "http://isl.gforge.inria.fr/isl-0.15.tar.bz2"
+    sha256 "8ceebbf4d9a81afa2b4449113cee4b7cb14a687d7a549a963deb5e2a41458b6b"
+  end
+
   def install
     ENV.deparallelize
 
@@ -103,6 +109,9 @@ class MuslCross < Formula
     COMMON_CONFIG += CFLAGS="-g0 -Os" CXXFLAGS="-g0 -Os" LDFLAGS="-s"
     # Keep the local build path out of binaries and libraries:
     COMMON_CONFIG += --with-debug-prefix-map=$(PWD)=
+
+    # Explicitly enable libisl support to avoid opportunistic linking
+    ISL_VER = 0.15
 
     # https://llvm.org/bugs/show_bug.cgi?id=19650
     ifeq ($(shell $(CXX) -v 2>&1 | grep -c "clang"), 1)
