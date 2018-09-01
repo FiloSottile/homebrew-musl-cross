@@ -90,7 +90,7 @@ class MuslCross < Formula
       cp resource.fetch, buildpath/"resources"/resource.name
     end
 
-    (buildpath/"config.mak").write <<-EOS
+    (buildpath/"config.mak").write <<~EOS
     SOURCES = #{buildpath/"resources"}
     OUTPUT = #{libexec}
 
@@ -119,7 +119,7 @@ class MuslCross < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
     #include <stdio.h>
 
     main()
