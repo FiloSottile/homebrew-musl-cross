@@ -9,7 +9,7 @@ class MuslCross < Formula
   bottle do
     root_url "https://dl.bintray.com/filosottile/generic"
     cellar :any_skip_relocation
-    sha256 "85dd4b73749b03c56adbf6bd3af9c191673a42257fd2d417c05adad87973d5f3" => :high_sierra
+    sha256 "60cd9b07a9024bdbda03cba4e44c84fa328fb1370aec330be8da2513d7e9d017" => :high_sierra
   end
 
   option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
