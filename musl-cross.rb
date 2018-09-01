@@ -3,8 +3,8 @@ class MuslCross < Formula
   homepage "https://github.com/richfelker/musl-cross-make"
   url "https://github.com/richfelker/musl-cross-make/archive/v0.9.7.tar.gz"
   sha256 "876173e2411b5f50516723c63075655a9aac55ee3804f91adfb61f0a85af8f38"
-  head "https://github.com/richfelker/musl-cross-make.git"
   revision 1
+  head "https://github.com/richfelker/musl-cross-make.git"
 
   bottle do
     root_url "https://dl.bintray.com/filosottile/generic"
@@ -97,26 +97,26 @@ class MuslCross < Formula
     end
 
     (buildpath/"config.mak").write <<~EOS
-    SOURCES = #{buildpath/"resources"}
-    OUTPUT = #{libexec}
+      SOURCES = #{buildpath/"resources"}
+      OUTPUT = #{libexec}
 
-    # Recommended options for faster/simpler build:
-    COMMON_CONFIG += --disable-nls
-    GCC_CONFIG += --enable-languages=c,c++
-    GCC_CONFIG += --disable-libquadmath --disable-decimal-float
-    GCC_CONFIG += --disable-multilib
-    # Recommended options for smaller build for deploying binaries:
-    COMMON_CONFIG += CFLAGS="-g0 -Os" CXXFLAGS="-g0 -Os" LDFLAGS="-s"
-    # Keep the local build path out of binaries and libraries:
-    COMMON_CONFIG += --with-debug-prefix-map=$(PWD)=
+      # Recommended options for faster/simpler build:
+      COMMON_CONFIG += --disable-nls
+      GCC_CONFIG += --enable-languages=c,c++
+      GCC_CONFIG += --disable-libquadmath --disable-decimal-float
+      GCC_CONFIG += --disable-multilib
+      # Recommended options for smaller build for deploying binaries:
+      COMMON_CONFIG += CFLAGS="-g0 -Os" CXXFLAGS="-g0 -Os" LDFLAGS="-s"
+      # Keep the local build path out of binaries and libraries:
+      COMMON_CONFIG += --with-debug-prefix-map=$(PWD)=
 
-    # Explicitly enable libisl support to avoid opportunistic linking
-    ISL_VER = 0.15
+      # Explicitly enable libisl support to avoid opportunistic linking
+      ISL_VER = 0.15
 
-    # https://llvm.org/bugs/show_bug.cgi?id=19650
-    ifeq ($(shell $(CXX) -v 2>&1 | grep -c "clang"), 1)
-    TOOLCHAIN_CONFIG += CXX="$(CXX) -fbracket-depth=512"
-    endif
+      # https://llvm.org/bugs/show_bug.cgi?id=19650
+      ifeq ($(shell $(CXX) -v 2>&1 | grep -c "clang"), 1)
+      TOOLCHAIN_CONFIG += CXX="$(CXX) -fbracket-depth=512"
+      endif
     EOS
 
     ENV.prepend_path "PATH", "#{Formula["gnu-sed"].opt_libexec}/gnubin"
@@ -129,12 +129,12 @@ class MuslCross < Formula
 
   test do
     (testpath/"hello.c").write <<~EOS
-    #include <stdio.h>
+      #include <stdio.h>
 
-    main()
-    {
-        printf("Hello, world!");
-    }
+      main()
+      {
+          printf("Hello, world!");
+      }
     EOS
 
     if build.with? "x86_64"
