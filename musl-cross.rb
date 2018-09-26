@@ -125,6 +125,7 @@ class MuslCross < Formula
     end
 
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink Dir["#{libexec}/include/*"]
   end
 
   test do
