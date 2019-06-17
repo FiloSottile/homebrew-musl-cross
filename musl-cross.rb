@@ -1,16 +1,9 @@
 class MuslCross < Formula
   desc "Linux cross compilers based on musl libc"
   homepage "https://github.com/richfelker/musl-cross-make"
-  url "https://github.com/richfelker/musl-cross-make/archive/v0.9.7.tar.gz"
-  sha256 "876173e2411b5f50516723c63075655a9aac55ee3804f91adfb61f0a85af8f38"
-  revision 1
+  url "https://github.com/richfelker/musl-cross-make/archive/v0.9.8.tar.gz"
+  sha256 "886ac2169c569455862d19789a794a51d0fbb37209e6fae1bda7d6554a689aac"
   head "https://github.com/richfelker/musl-cross-make.git"
-
-  bottle do
-    root_url "https://dl.bintray.com/filosottile/generic"
-    cellar :any_skip_relocation
-    sha256 "60cd9b07a9024bdbda03cba4e44c84fa328fb1370aec330be8da2513d7e9d017" => :high_sierra
-  end
 
   option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
@@ -42,9 +35,9 @@ class MuslCross < Formula
     sha256 "a8109865f2893f1373b0a8ed5ff7429de8db696fc451b1036bd7bdf95bbeffd6"
   end
 
-  resource "musl-1.1.18.tar.gz" do
-    url "https://www.musl-libc.org/releases/musl-1.1.18.tar.gz"
-    sha256 "d017ee5d01aec0c522a1330fdff06b1e428cb409e1db819cc4935d5da4a5a118"
+  resource "musl-1.1.22.tar.gz" do
+    url "https://www.musl-libc.org/releases/musl-1.1.22.tar.gz"
+    sha256 "8b0941a48d2f980fd7036cfbd24aa1d414f03d9a0652ecbd5ec5c7ff1bee29e3"
   end
 
   resource "binutils-2.27.tar.bz2" do
@@ -57,9 +50,9 @@ class MuslCross < Formula
     sha256 "75d5d255a2a273b6e651f82eecfabf6cbcd8eaeae70e86b417384c8f4a58d8d3"
   end
 
-  resource "gcc-6.3.0.tar.bz2" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
-    sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
+  resource "gcc-6.4.0.tar.xz" do
+    url "https://ftp.gnu.org/gnu/gcc/gcc-6.4.0/gcc-6.4.0.tar.xz"
+    sha256 "850bf21eafdfe5cd5f6827148184c08c4a0852a37ccf36ce69855334d2c914d4"
   end
 
   resource "isl-0.15.tar.bz2" do
