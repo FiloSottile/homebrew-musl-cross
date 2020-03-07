@@ -1,8 +1,8 @@
 class MuslCross < Formula
   desc "Linux cross compilers based on musl libc"
   homepage "https://github.com/richfelker/musl-cross-make"
-  url "https://github.com/richfelker/musl-cross-make/archive/v0.9.8.tar.gz"
-  sha256 "886ac2169c569455862d19789a794a51d0fbb37209e6fae1bda7d6554a689aac"
+  url "https://github.com/richfelker/musl-cross-make/archive/v0.9.9.tar.gz"
+  sha256 "ff3e2188626e4e55eddcefef4ee0aa5a8ffb490e3124850589bcaf4dd60f5f04"
   head "https://github.com/richfelker/musl-cross-make.git"
 
   option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
@@ -15,34 +15,34 @@ class MuslCross < Formula
   depends_on "gnu-sed" => :build
   depends_on "make" => :build
 
-  resource "linux-4.4.10.tar.xz" do
-    url "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.10.tar.xz"
-    sha256 "4ac22e4a619417213cfdab24714413bb9118fbaebe6012c6c89c279cdadef2ce"
+  resource "linux-4.19.88.tar.xz" do
+    url "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.88.tar.xz"
+    sha256 "c1923b6bd166e6dd07be860c15f59e8273aaa8692bc2a1fce1d31b826b9b3fbe"
   end
 
-  resource "mpfr-3.1.4.tar.bz2" do
-    url "https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.4.tar.bz2"
-    sha256 "d3103a80cdad2407ed581f3618c4bed04e0c92d1cf771a65ead662cc397f7775"
+  resource "mpfr-4.0.2.tar.bz2" do
+    url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.bz2"
+    sha256 "c05e3f02d09e0e9019384cdd58e0f19c64e6db1fd6f5ecf77b4b1c61ca253acc"
   end
 
-  resource "mpc-1.0.3.tar.gz" do
-    url "https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz"
-    sha256 "617decc6ea09889fb08ede330917a00b16809b8db88c29c31bfbb49cbf88ecc3"
+  resource "mpc-1.1.0.tar.gz" do
+    url "https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz"
+    sha256 "6985c538143c1208dcb1ac42cedad6ff52e267b47e5f970183a3e75125b43c2e"
   end
 
-  resource "gmp-6.1.1.tar.bz2" do
-    url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.1.tar.bz2"
-    sha256 "a8109865f2893f1373b0a8ed5ff7429de8db696fc451b1036bd7bdf95bbeffd6"
+  resource "gmp-6.1.2.tar.bz2" do
+    url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.bz2"
+    sha256 "5275bb04f4863a13516b2f39392ac5e272f5e1bb8057b18aec1c9b79d73d8fb2"
   end
 
-  resource "musl-1.1.22.tar.gz" do
-    url "https://www.musl-libc.org/releases/musl-1.1.22.tar.gz"
-    sha256 "8b0941a48d2f980fd7036cfbd24aa1d414f03d9a0652ecbd5ec5c7ff1bee29e3"
+  resource "musl-1.2.0.tar.gz" do
+    url "https://www.musl-libc.org/releases/musl-1.2.0.tar.gz"
+    sha256 "c6de7b191139142d3f9a7b5b702c9cae1b5ee6e7f57e582da9328629408fd4e8"
   end
 
-  resource "binutils-2.27.tar.bz2" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.bz2"
-    sha256 "369737ce51587f92466041a97ab7d2358c6d9e1b6490b3940eb09fb0a9a6ac88"
+  resource "binutils-2.33.1.tar.bz2" do
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.33.1.tar.bz2"
+    sha256 "0cb4843da15a65a953907c96bad658283f3c4419d6bcc56bf2789db16306adb2"
   end
 
   resource "config.sub" do
@@ -50,15 +50,17 @@ class MuslCross < Formula
     sha256 "75d5d255a2a273b6e651f82eecfabf6cbcd8eaeae70e86b417384c8f4a58d8d3"
   end
 
-  resource "gcc-6.4.0.tar.xz" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-6.4.0/gcc-6.4.0.tar.xz"
-    sha256 "850bf21eafdfe5cd5f6827148184c08c4a0852a37ccf36ce69855334d2c914d4"
+  resource "gcc-9.2.0.tar.xz" do
+    url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
+    sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
   end
 
-  resource "isl-0.15.tar.bz2" do
-    url "http://isl.gforge.inria.fr/isl-0.15.tar.bz2"
-    sha256 "8ceebbf4d9a81afa2b4449113cee4b7cb14a687d7a549a963deb5e2a41458b6b"
+  resource "isl-0.21.tar.bz2" do
+    url "http://isl.gforge.inria.fr/isl-0.21.tar.bz2"
+    sha256 "d18ca11f8ad1a39ab6d03d3dcb3365ab416720fcb65b42d69f34f51bf0a0e859"
   end
+
+  patch :DATA # https://github.com/richfelker/musl-cross-make/pull/89
 
   def install
     ENV.deparallelize
@@ -93,20 +95,19 @@ class MuslCross < Formula
       SOURCES = #{buildpath/"resources"}
       OUTPUT = #{libexec}
 
-      # Recommended options for faster/simpler build:
+      # Drop some features for faster and smaller builds
       COMMON_CONFIG += --disable-nls
-      GCC_CONFIG += --enable-languages=c,c++
       GCC_CONFIG += --disable-libquadmath --disable-decimal-float
-      GCC_CONFIG += --disable-multilib
-      # Recommended options for smaller build for deploying binaries:
-      COMMON_CONFIG += CFLAGS="-g0 -Os" CXXFLAGS="-g0 -Os" LDFLAGS="-s"
-      # Keep the local build path out of binaries and libraries:
-      COMMON_CONFIG += --with-debug-prefix-map=$(PWD)=
+      GCC_CONFIG += --disable-libitm --disable-fixed-point
+
+      # Keep the local build path out of binaries and libraries
+      COMMON_CONFIG += --with-debug-prefix-map=#{buildpath}=
 
       # Explicitly enable libisl support to avoid opportunistic linking
-      ISL_VER = 0.15
+      ISL_VER = 0.21
 
       # https://llvm.org/bugs/show_bug.cgi?id=19650
+      # https://github.com/richfelker/musl-cross-make/issues/11
       ifeq ($(shell $(CXX) -v 2>&1 | grep -c "clang"), 1)
       TOOLCHAIN_CONFIG += CXX="$(CXX) -fbracket-depth=512"
       endif
@@ -150,3 +151,17 @@ class MuslCross < Formula
     end
   end
 end
+__END__
+diff --git a/Makefile b/Makefile
+index 3d688f7..e1d4c8e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -26,7 +26,7 @@ LINUX_HEADERS_SITE = http://ftp.barfooze.de/pub/sabotage/tarballs/
+ 
+ DL_CMD = wget -c -O
+ 
+-COWPATCH = $(PWD)/cowpatch.sh
++COWPATCH = $(CURDIR)/cowpatch.sh
+ 
+ HOST = $(if $(NATIVE),$(TARGET))
+ BUILD_DIR = build/$(if $(HOST),$(HOST),local)/$(TARGET)
