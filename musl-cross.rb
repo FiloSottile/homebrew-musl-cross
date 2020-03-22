@@ -123,7 +123,7 @@ class MuslCross < Formula
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
 
-      main()
+      int main()
       {
           printf("Hello, world!");
       }
