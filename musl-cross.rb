@@ -5,6 +5,12 @@ class MuslCross < Formula
   sha256 "ff3e2188626e4e55eddcefef4ee0aa5a8ffb490e3124850589bcaf4dd60f5f04"
   head "https://github.com/richfelker/musl-cross-make.git"
 
+  bottle do
+    root_url "https://dl.bintray.com/filosottile/generic"
+    cellar :any_skip_relocation
+    sha256 "a96a44828c95e76730fdaceb0c7aba425fd90807a344a0e1d5091069b78ff812" => :catalina
+  end
+
   option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
