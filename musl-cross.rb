@@ -63,26 +63,13 @@ class MuslCross < Formula
   patch :DATA # https://github.com/richfelker/musl-cross-make/pull/89
 
   def install
-    if build.with? "x86_64"
-      targets = ["x86_64-linux-musl"]
-    else
-      targets = []
-    end
-    if build.with? "aarch64"
-      targets.push "aarch64-linux-musl"
-    end
-    if build.with? "arm-hf"
-      targets.push "arm-linux-musleabihf"
-    end
-    if build.with? "arm"
-      targets.push "arm-linux-musleabi"
-    end
-    if build.with? "i486"
-      targets.push "i486-linux-musl"
-    end
-    if build.with? "mips"
-      targets.push "mips-linux-musl"
-    end
+    targets = []
+    targets.push "x86_64-linux-musl" if build.with? "x86_64"
+    targets.push "aarch64-linux-musl" if build.with? "aarch64"
+    targets.push "arm-linux-musleabihf" if build.with? "arm-hf"
+    targets.push "arm-linux-musleabi" if build.with? "arm"
+    targets.push "i486-linux-musl" if build.with? "i486"
+    targets.push "mips-linux-musl" if build.with? "mips"
 
     (buildpath/"resources").mkpath
     resources.each do |resource|
@@ -129,24 +116,12 @@ class MuslCross < Formula
       }
     EOS
 
-    if build.with? "x86_64"
-      system "#{bin}/x86_64-linux-musl-cc", (testpath/"hello.c")
-    end
-    if build.with? "i486"
-      system "#{bin}/i486-linux-musl-cc", (testpath/"hello.c")
-    end
-    if build.with? "aarch64"
-      system "#{bin}/aarch64-linux-musl-cc", (testpath/"hello.c")
-    end
-    if build.with? "arm-hf"
-      system "#{bin}/arm-linux-musleabihf-cc", (testpath/"hello.c")
-    end
-    if build.with? "arm"
-      system "#{bin}/arm-linux-musleabi-cc", (testpath/"hello.c")
-    end
-    if build.with? "mips"
-      system "${bin}/mips-linux-musl-cc", (testpath/"hello.c")
-    end
+    system "#{bin}/x86_64-linux-musl-cc", (testpath/"hello.c") if build.with? "x86_64"
+    system "#{bin}/i486-linux-musl-cc", (testpath/"hello.c") if build.with? "i486"
+    system "#{bin}/aarch64-linux-musl-cc", (testpath/"hello.c") if build.with? "aarch64"
+    system "#{bin}/arm-linux-musleabihf-cc", (testpath/"hello.c") if build.with? "arm-hf"
+    system "#{bin}/arm-linux-musleabi-cc", (testpath/"hello.c") if build.with? "arm"
+    system "${bin}/mips-linux-musl-cc", (testpath/"hello.c") if build.with? "mips"
   end
 end
 __END__
