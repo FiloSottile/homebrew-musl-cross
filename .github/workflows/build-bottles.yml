@@ -1,0 +1,26 @@
+name: Build bottles
+
+on: push
+
+jobs:
+  build-macos-bottles:
+    runs-on: macos-latest
+    env:
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Update Homebrew
+        run: brew update-reset
+      - uses: actions/checkout@master
+      - name: Build bottles
+        run: |
+          mkdir -p "$(dirname $(brew --repo ${{github.repository}}))"
+          cp -a "${{github.workspace}}" "$(brew --repo ${{github.repository}})"
+          mkdir "${{runner.temp}}/bottles"
+          cd "${{runner.temp}}/bottles"
+          brew test-bot --root-url=https://filippo.io/bottles-musl-cross musl-cross
+      - name: Upload bottles
+        uses: actions/upload-artifact@v1
+        with:
+          name: bottles
+          path: ${{runner.temp}}/bottles
