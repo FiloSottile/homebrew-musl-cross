@@ -18,7 +18,7 @@ jobs:
           cp -a "${{github.workspace}}" "$(brew --repo ${{github.repository}})"
           mkdir "${{runner.temp}}/bottles"
           cd "${{runner.temp}}/bottles"
-          brew test-bot --root-url=https://filippo.io/bottles-musl-cross musl-cross
+          brew test-bot --root-url=https://dl.bintray.com/filosottile/generic musl-cross
       - name: Upload bottles
         uses: actions/upload-artifact@v1
         with:
