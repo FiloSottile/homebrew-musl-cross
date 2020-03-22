@@ -63,8 +63,6 @@ class MuslCross < Formula
   patch :DATA # https://github.com/richfelker/musl-cross-make/pull/89
 
   def install
-    ENV.deparallelize
-
     if build.with? "x86_64"
       targets = ["x86_64-linux-musl"]
     else
