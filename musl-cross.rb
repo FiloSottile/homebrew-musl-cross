@@ -127,7 +127,7 @@ class MuslCross < Formula
     system "#{bin}/aarch64-linux-musl-cc", (testpath/"hello.c") if build.with? "aarch64"
     system "#{bin}/arm-linux-musleabihf-cc", (testpath/"hello.c") if build.with? "arm-hf"
     system "#{bin}/arm-linux-musleabi-cc", (testpath/"hello.c") if build.with? "arm"
-    system "${bin}/mips-linux-musl-cc", (testpath/"hello.c") if build.with? "mips"
+    system "#{bin}/mips-linux-musl-cc", (testpath/"hello.c") if build.with? "mips"
   end
 end
 __END__
