@@ -27,3 +27,15 @@ You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit), `--w
 (Note: a custom build can take up to several hours, depending on the selected architectures and on the host CPU.)
 
 Only tested on macOS Catalina.
+
+## Troubleshooting
+
+### running "musl-gcc"
+
+As stated in [this issue](https://github.com/FiloSottile/homebrew-musl-cross/issues/16), some scripts expect the command `musl-gcc` to exist.
+That said, you may want to have such symlink:
+
+```
+# if your cross compiler toolchain targets musl Linux amd64
+ln -s $(which x86_64-linux-musl-gcc) /usr/local/bin/musl-gcc
+```
