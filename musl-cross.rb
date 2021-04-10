@@ -9,7 +9,7 @@ class MuslCross < Formula
   head "https://github.com/richfelker/musl-cross-make.git"
 
   bottle do
-    root_url "https://dl.bintray.com/filosottile/generic"
+    root_url "https://f001.backblazeb2.com/file/filippo-public/"
     sha256 cellar: :any_skip_relocation, catalina: "a96a44828c95e76730fdaceb0c7aba425fd90807a344a0e1d5091069b78ff812"
   end
 
