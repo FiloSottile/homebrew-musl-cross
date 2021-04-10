@@ -1,3 +1,6 @@
+# typed: false
+# frozen_string_literal: true
+
 class MuslCross < Formula
   desc "Linux cross compilers based on musl libc"
   homepage "https://github.com/richfelker/musl-cross-make"
@@ -7,8 +10,7 @@ class MuslCross < Formula
 
   bottle do
     root_url "https://dl.bintray.com/filosottile/generic"
-    cellar :any_skip_relocation
-    sha256 "a96a44828c95e76730fdaceb0c7aba425fd90807a344a0e1d5091069b78ff812" => :catalina
+    sha256 cellar: :any_skip_relocation, catalina: "a96a44828c95e76730fdaceb0c7aba425fd90807a344a0e1d5091069b78ff812"
   end
 
   option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
