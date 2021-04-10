@@ -26,4 +26,8 @@ You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit), `--w
 
 (Note: a custom build can take up to several hours and gigabytes of disk space, depending on the selected architectures and on the host CPU. The default installed size is between 200MB and 300MB.)
 
-Only tested on macOS Catalina.
+If you encounter issues with a missing `musl-gcc` binary, the build system might be [assuming the presence of the musl host compiler wrapper](https://github.com/FiloSottile/homebrew-musl-cross/issues/16). That should be reported as an issue, but you might be able to workaround it by creating a symlink:
+
+```
+ln -s /usr/local/opt/musl-cross/bin/x86_64-linux-musl-gcc /usr/local/bin/musl-gcc
+```
