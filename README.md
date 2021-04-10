@@ -24,6 +24,6 @@ brew install FiloSottile/musl-cross/musl-cross --without-x86_64 --with-arm-hf
 
 You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit), `--with-arm` (ARM soft-float), `--with-mips` and `--with-powerpc`.
 
-(Note: a custom build can take up to several hours, depending on the selected architectures and on the host CPU.)
+(Note: a custom build can take up to several hours and gigabytes of disk space, depending on the selected architectures and on the host CPU. The default installed size is between 200MB and 300MB.)
 
 Only tested on macOS Catalina.
