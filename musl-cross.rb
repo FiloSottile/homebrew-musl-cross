@@ -6,6 +6,7 @@ class MuslCross < Formula
   homepage "https://github.com/richfelker/musl-cross-make"
   url "https://github.com/richfelker/musl-cross-make/archive/v0.9.9.tar.gz"
   sha256 "ff3e2188626e4e55eddcefef4ee0aa5a8ffb490e3124850589bcaf4dd60f5f04"
+  revision 1
   head "https://github.com/richfelker/musl-cross-make.git"
 
   bottle do
