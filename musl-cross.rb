@@ -75,8 +75,8 @@ class MuslCross < Formula
   end
 
   patch do # disable arm vdso in musl 1.2.0
-    url "https://github.com/richfelker/musl-cross-make/commit/d6ded50dd77522?full_index=1"
-    sha256 "67e13bd8a5a1d9e7711f08126b35ccbf17166aa095fdcd2c7f4f280f13c0717a"
+    url "https://github.com/richfelker/musl-cross-make/commit/d6ded50d.patch?full_index=1"
+    sha256 "6a1ab78f59f637c933582db515dd0d5fe4bb6928d23a9b02948b0cdb857466c8"
   end
 
   patch do # use CURDIR instead of PWD
