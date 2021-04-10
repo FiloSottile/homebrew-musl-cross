@@ -13,7 +13,7 @@ class MuslCross < Formula
     sha256 cellar: :any_skip_relocation, catalina: "a96a44828c95e76730fdaceb0c7aba425fd90807a344a0e1d5091069b78ff812"
   end
 
-  option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
+  option "with-aarch64", "Build cross-compilers targeting aarch64-linux-musl"
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
@@ -21,6 +21,8 @@ class MuslCross < Formula
   option "with-mipsel", "Build cross-compilers targeting mipsel-linux-musl"
   option "with-mips64", "Build cross-compilers targeting mips64-linux-musl"
   option "with-mips64el", "Build cross-compilers targeting mips64el-linux-musl"
+  option "with-powerpc", "Build cross-compilers targeting powerpc-linux-musl"
+  option "with-powerpc-sf", "Build cross-compilers targeting powerpc-linux-muslsf"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
   depends_on "gnu-sed" => :build
@@ -92,6 +94,8 @@ class MuslCross < Formula
     targets.push "mipsel-linux-musl" if build.with? "mipsel"
     targets.push "mips64-linux-musl" if build.with? "mips64"
     targets.push "mips64el-linux-musl" if build.with? "mips64el"
+    targets.push "powerpc-linux-musl" if build.with? "powerpc"
+    targets.push "powerpc-linux-muslsf" if build.with? "powerpc-sf"
 
     (buildpath/"resources").mkpath
     resources.each do |resource|
@@ -147,5 +151,7 @@ class MuslCross < Formula
     system "#{bin}/mipsel-linux-musl-cc", (testpath/"hello.c") if build.with? "mipsel"
     system "#{bin}/mips64-linux-musl-cc", (testpath/"hello.c") if build.with? "mips64"
     system "#{bin}/mips64el-linux-musl-cc", (testpath/"hello.c") if build.with? "mips64el"
+    system "#{bin}/powerpc-linux-musl-cc", (testpath/"hello.c") if build.with? "powerpc"
+    system "#{bin}/powerpc-linux-muslsf-cc", (testpath/"hello.c") if build.with? "powerpc-sf"
   end
 end

@@ -22,7 +22,7 @@ Other architectures are supported. For example you can build a Raspberry Pi cros
 brew install FiloSottile/musl-cross/musl-cross --without-x86_64 --with-arm-hf
 ```
 
-You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit), `--with-arm` (ARM soft-float) and `--with-mips`.
+You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit), `--with-arm` (ARM soft-float), `--with-mips` and `--with-powerpc`.
 
 (Note: a custom build can take up to several hours, depending on the selected architectures and on the host CPU.)
 
