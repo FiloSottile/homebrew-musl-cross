@@ -71,7 +71,15 @@ class MuslCross < Formula
     sha256 "d18ca11f8ad1a39ab6d03d3dcb3365ab416720fcb65b42d69f34f51bf0a0e859"
   end
 
-  patch :DATA # https://github.com/richfelker/musl-cross-make/pull/89
+  patch do # disable arm vdso in musl 1.2.0
+    url "https://github.com/richfelker/musl-cross-make/commit/d6ded50dd77522?full_index=1"
+    sha256 "67e13bd8a5a1d9e7711f08126b35ccbf17166aa095fdcd2c7f4f280f13c0717a"
+  end
+
+  patch do # use CURDIR instead of PWD
+    url "https://github.com/richfelker/musl-cross-make/commit/a54eb56f.patch?full_index=1"
+    sha256 "a4e3fc7c37dac40819d23bd022122c17c783f58dda4345065fec6dca6abce36c"
+  end
 
   def install
     targets = []
@@ -141,17 +149,3 @@ class MuslCross < Formula
     system "#{bin}/mips64el-linux-musl-cc", (testpath/"hello.c") if build.with? "mips64el"
   end
 end
-__END__
-diff --git a/Makefile b/Makefile
-index 3d688f7..e1d4c8e 100644
---- a/Makefile
-+++ b/Makefile
-@@ -26,7 +26,7 @@ LINUX_HEADERS_SITE = http://ftp.barfooze.de/pub/sabotage/tarballs/
- 
- DL_CMD = wget -c -O
- 
--COWPATCH = $(PWD)/cowpatch.sh
-+COWPATCH = $(CURDIR)/cowpatch.sh
- 
- HOST = $(if $(NATIVE),$(TARGET))
- BUILD_DIR = build/$(if $(HOST),$(HOST),local)/$(TARGET)
