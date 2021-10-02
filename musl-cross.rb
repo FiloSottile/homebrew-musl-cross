@@ -70,7 +70,7 @@ class MuslCross < Formula
   end
 
   resource "isl-0.21.tar.bz2" do
-    url "http://isl.gforge.inria.fr/isl-0.21.tar.bz2"
+    url "https://public.pengutronix.de/oselas/toolchain/upstream/isl-0.21.tar.bz2"
     sha256 "d18ca11f8ad1a39ab6d03d3dcb3365ab416720fcb65b42d69f34f51bf0a0e859"
   end
 
