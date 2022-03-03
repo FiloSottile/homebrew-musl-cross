@@ -4,7 +4,7 @@
 based on [richfelker/musl-cross-make](https://github.com/richfelker/musl-cross-make).
 
 ```
-brew install FiloSottile/musl-cross/musl-cross
+brew install filosottile/musl-cross/musl-cross
 ```
 
 By default it will build a full cross compiler toolchain targeting musl Linux amd64.
