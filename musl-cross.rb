@@ -84,6 +84,11 @@ class MuslCross < Formula
     sha256 "a4e3fc7c37dac40819d23bd022122c17c783f58dda4345065fec6dca6abce36c"
   end
 
+  patch do # Apple Silicon build fix for gcc-6.5.0 .. gcc-10.3.0
+    url "https://github.com/richfelker/musl-cross-make/commit/8d34906.patch?full_index=1"
+    sha256 "01b2e0e11aeb33db5d8988d42a517828911601227238d8e7d5d7db8364486c26"
+  end
+
   def install
     targets = []
     targets.push "x86_64-linux-musl" if build.with? "x86_64"
