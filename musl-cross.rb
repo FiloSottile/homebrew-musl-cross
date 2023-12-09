@@ -25,7 +25,7 @@ class MuslCross < Formula
   option "with-powerpc", "Build cross-compilers targeting powerpc-linux-musl"
   option "with-powerpc-sf", "Build cross-compilers targeting powerpc-linux-muslsf"
   option "with-powerpc64", "Build cross-compilers targeting powerpc64-linux-musl"
-  option "with-powerpc64le", "Build cross-compilers targeting powerpc64-linux-musl"
+  option "with-powerpc64le", "Build cross-compilers targeting powerpc64le-linux-musl"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
   depends_on "gnu-sed" => :build
