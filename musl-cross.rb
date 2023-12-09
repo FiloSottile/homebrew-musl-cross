@@ -107,7 +107,6 @@ class MuslCross < Formula
     targets.push "powerpc64-linux-musl" if build.with? "powerpc64"
     targets.push "powerpc64le-linux-musl" if build.with? "powerpc64le"
 
-
     (buildpath/"resources").mkpath
     resources.each do |resource|
       cp resource.fetch, buildpath/"resources"/resource.name
