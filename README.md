@@ -19,7 +19,7 @@ Musl is specifically engineered to support static binaries.
 Other architectures are supported. For example you can build a Raspberry Pi cross-compiler:
 
 ```
-brew install FiloSottile/musl-cross/musl-cross --without-x86_64 --with-arm-hf
+brew install filosottile/musl-cross/musl-cross --without-x86_64 --with-arm-hf
 ```
 
 You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit), `--with-arm` (ARM soft-float), `--with-mips` and `--with-powerpc`.
