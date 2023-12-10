@@ -22,7 +22,8 @@ To use this as a Go cross-compiler for cgo, use `CC`, `GOOS`/`GOARCH`,
 `CGO_ENABLED`, and `-extldflags`.
 
 ```
-CC=x86_64-linux-musl-gcc CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "-extldflags -static"
+CC=x86_64-linux-musl-gcc CGO_ENABLED=1 GOOS=linux GOARCH=amd64 \
+    go build -trimpath -ldflags "-extldflags -static"
 ```
 
 To use this with Rust, add an entry to `.cargo/config` and use the corresponding target.
@@ -35,7 +36,8 @@ linker = "x86_64-linux-musl-gcc"
 Other architectures are supported. For example you can build a Raspberry Pi cross-compiler:
 
 ```
-brew install filosottile/musl-cross/musl-cross --without-x86_64 --without-aarch64 --with-arm-hf
+brew install filosottile/musl-cross/musl-cross --build-from-source \
+    --without-x86_64 --without-aarch64 --with-arm-hf
 ```
 
 (Note: a custom build takes around ten minutes per architecture on an M2.
