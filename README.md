@@ -7,10 +7,11 @@ based on [richfelker/musl-cross-make](https://github.com/richfelker/musl-cross-m
 brew install filosottile/musl-cross/musl-cross
 ```
 
-By default it will install a full cross compiler toolchain targeting musl Linux amd64.
+By default it will install full cross compiler toolchains targeting musl Linux amd64 and arm64.
 
-You can then use `x86_64-linux-musl-` versions of the tools to build for the target.
-For example `x86_64-linux-musl-cc` will compile C code to run on musl Linux amd64.
+You can then use `x86_64-linux-musl-` or `aarch64-linux-musl-` versions of the
+tools to build for the target. For example `x86_64-linux-musl-cc` will compile C
+code to run on musl Linux amd64.
 
 The "musl" part of the target is important: the binaries will ONLY run on a
 musl-based system, like Alpine. However, if you build them as static binaries by
@@ -34,14 +35,11 @@ linker = "x86_64-linux-musl-gcc"
 Other architectures are supported. For example you can build a Raspberry Pi cross-compiler:
 
 ```
-brew install filosottile/musl-cross/musl-cross --without-x86_64 --with-arm-hf
+brew install filosottile/musl-cross/musl-cross --without-x86_64 --without-aarch64 --with-arm-hf
 ```
 
-You can also use `--with-i486` (x86 32-bit), `--with-aarch64` (ARM 64-bit),
-`--with-arm` (ARM soft-float), and many more.
-
 (Note: a custom build takes around ten minutes per architecture on an M2.
-The installed size is between 200MB and 300MB per architecture.)
+The installed size is between 150MB and 300MB per architecture.)
 
 If you encounter issues with a missing `musl-gcc` binary, the build system might
 be [assuming the presence of the musl host compiler

@@ -6,7 +6,7 @@ class MuslCross < Formula
   homepage "https://github.com/richfelker/musl-cross-make"
   url "https://github.com/richfelker/musl-cross-make/archive/refs/tags/v0.9.9.tar.gz"
   sha256 "ff3e2188626e4e55eddcefef4ee0aa5a8ffb490e3124850589bcaf4dd60f5f04"
-  revision 1
+  revision 2
   head "https://github.com/richfelker/musl-cross-make.git"
 
   bottle do
@@ -14,7 +14,6 @@ class MuslCross < Formula
     sha256 cellar: :any_skip_relocation, catalina: "d668fe23ce3a8812204656ddad44ffda599f1515b937879d2ed33f46ec877185"
   end
 
-  option "with-aarch64", "Build cross-compilers targeting aarch64-linux-musl"
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
@@ -26,6 +25,7 @@ class MuslCross < Formula
   option "with-powerpc-sf", "Build cross-compilers targeting powerpc-linux-muslsf"
   option "with-powerpc64", "Build cross-compilers targeting powerpc64-linux-musl"
   option "with-powerpc64le", "Build cross-compilers targeting powerpc64le-linux-musl"
+  option "without-aarch64", "Do not build cross-compilers targeting aarch64-linux-musl"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
   depends_on "gnu-sed" => :build
