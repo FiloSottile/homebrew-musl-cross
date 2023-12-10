@@ -12,6 +12,7 @@ class MuslCross < Formula
   bottle do
     root_url "https://f001.backblazeb2.com/file/filippo-public"
     sha256 cellar: :any_skip_relocation, ventura: "aed152f8444f745051a793140766144607c4d39d0627c8481ef78ea0602cb967"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "05ffe040629aca767be733d64e811fd06189b62c34b5b3c00ed6afd2195d5358"
   end
 
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"

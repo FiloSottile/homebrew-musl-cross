@@ -1,6 +1,6 @@
 name: Build bottles
 
-on: push
+on: workflow_dispatch
 
 jobs:
   build-macos-bottles:
