@@ -52,8 +52,8 @@ class MuslCross < Formula
     sha256 "5275bb04f4863a13516b2f39392ac5e272f5e1bb8057b18aec1c9b79d73d8fb2"
   end
 
-  resource "musl-1.2.0.tar.gz" do
-    url "https://www.musl-libc.org/releases/musl-1.2.0.tar.gz"
+  resource "musl-1.2.5.tar.gz" do
+    url "https://www.musl-libc.org/releases/musl-1.2.5.tar.gz"
     sha256 "c6de7b191139142d3f9a7b5b702c9cae1b5ee6e7f57e582da9328629408fd4e8"
   end
 
@@ -77,7 +77,7 @@ class MuslCross < Formula
     sha256 "d18ca11f8ad1a39ab6d03d3dcb3365ab416720fcb65b42d69f34f51bf0a0e859"
   end
 
-  patch do # disable arm vdso in musl 1.2.0
+  patch do # disable arm vdso in musl 1.2.5
     url "https://github.com/richfelker/musl-cross-make/commit/d6ded50d.patch?full_index=1"
     sha256 "6a1ab78f59f637c933582db515dd0d5fe4bb6928d23a9b02948b0cdb857466c8"
   end
