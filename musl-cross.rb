@@ -54,7 +54,7 @@ class MuslCross < Formula
 
   resource "musl-1.2.5.tar.gz" do
     url "https://www.musl-libc.org/releases/musl-1.2.5.tar.gz"
-    sha256 "c6de7b191139142d3f9a7b5b702c9cae1b5ee6e7f57e582da9328629408fd4e8"
+    sha256 "a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4"
   end
 
   resource "binutils-2.33.1.tar.bz2" do
