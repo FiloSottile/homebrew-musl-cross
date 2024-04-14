@@ -17,7 +17,9 @@ class MuslCross < Formula
 
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
+  option "with-i386", "Build cross-compilers targeting i386-linux-musl"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
+  option "with-i686", "Build cross-compilers targeting i686-linux-musl"
   option "with-mips", "Build cross-compilers targeting mips-linux-musl"
   option "with-mipsel", "Build cross-compilers targeting mipsel-linux-musl"
   option "with-mips64", "Build cross-compilers targeting mips64-linux-musl"
@@ -26,6 +28,8 @@ class MuslCross < Formula
   option "with-powerpc-sf", "Build cross-compilers targeting powerpc-linux-muslsf"
   option "with-powerpc64", "Build cross-compilers targeting powerpc64-linux-musl"
   option "with-powerpc64le", "Build cross-compilers targeting powerpc64le-linux-musl"
+  option "with-s390x", "Build cross-compilers targeting s390x-linux-musl"
+  option "with-riscv64", "Build cross-compilers targeting riscv64-linux-musl"
   option "without-aarch64", "Do not build cross-compilers targeting aarch64-linux-musl"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
@@ -98,7 +102,9 @@ class MuslCross < Formula
     targets.push "aarch64-linux-musl" if build.with? "aarch64"
     targets.push "arm-linux-musleabihf" if build.with? "arm-hf"
     targets.push "arm-linux-musleabi" if build.with? "arm"
+    targets.push "i386-linux-musl" if build.with? "i386"
     targets.push "i486-linux-musl" if build.with? "i486"
+    targets.push "i686-linux-musl" if build.with? "i686"
     targets.push "mips-linux-musl" if build.with? "mips"
     targets.push "mipsel-linux-musl" if build.with? "mipsel"
     targets.push "mips64-linux-musl" if build.with? "mips64"
@@ -107,6 +113,8 @@ class MuslCross < Formula
     targets.push "powerpc-linux-muslsf" if build.with? "powerpc-sf"
     targets.push "powerpc64-linux-musl" if build.with? "powerpc64"
     targets.push "powerpc64le-linux-musl" if build.with? "powerpc64le"
+    targets.push "s390x-linux-musl" if build.with? "s390x"
+    targets.push "riscv64-linux-musl" if build.with? "riscv64"
 
     (buildpath/"resources").mkpath
     resources.each do |resource|
@@ -154,7 +162,9 @@ class MuslCross < Formula
     EOS
 
     system "#{bin}/x86_64-linux-musl-cc", (testpath/"hello.c") if build.with? "x86_64"
+    system "#{bin}/i386-linux-musl-cc", (testpath/"hello.c") if build.with? "i386"
     system "#{bin}/i486-linux-musl-cc", (testpath/"hello.c") if build.with? "i486"
+    system "#{bin}/i686-linux-musl-cc", (testpath/"hello.c") if build.with? "i686"
     system "#{bin}/aarch64-linux-musl-cc", (testpath/"hello.c") if build.with? "aarch64"
     system "#{bin}/arm-linux-musleabihf-cc", (testpath/"hello.c") if build.with? "arm-hf"
     system "#{bin}/arm-linux-musleabi-cc", (testpath/"hello.c") if build.with? "arm"
@@ -166,5 +176,7 @@ class MuslCross < Formula
     system "#{bin}/powerpc-linux-muslsf-cc", (testpath/"hello.c") if build.with? "powerpc-sf"
     system "#{bin}/powerpc64-linux-musl-cc", (testpath/"hello.c") if build.with? "powerpc64"
     system "#{bin}/powerpc64le-linux-musl-cc", (testpath/"hello.c") if build.with? "powerpc64le"
+    system "#{bin}/s390x-linux-musl-cc", (testpath/"hello.c") if build.with? "s390x"
+    system "#{bin}/riscv64-linux-musl-cc", (testpath/"hello.c") if build.with? "riscv64"
   end
 end
