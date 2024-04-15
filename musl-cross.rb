@@ -105,6 +105,7 @@ class MuslCross < Formula
     targets.push "arm-linux-musleabi" if build.with? "arm"
     targets.push "i386-linux-musl" if build.with? "i386"
     targets.push "i486-linux-musl" if build.with? "i486"
+    targets.push "i586-linux-musl" if build.with? "i586"
     targets.push "i686-linux-musl" if build.with? "i686"
     targets.push "mips-linux-musl" if build.with? "mips"
     targets.push "mipsel-linux-musl" if build.with? "mipsel"
