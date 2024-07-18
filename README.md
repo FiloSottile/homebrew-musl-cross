@@ -26,7 +26,7 @@ CC=x86_64-linux-musl-gcc CGO_ENABLED=1 GOOS=linux GOARCH=amd64 \
     go build -trimpath -ldflags "-extldflags -static"
 ```
 
-To use this with Rust, add an entry to `.cargo/config` and use the corresponding target.
+To use this with Rust, add an entry to `.cargo/config.toml` and use the corresponding target.
 
 ```
 [target.x86_64-unknown-linux-musl]
