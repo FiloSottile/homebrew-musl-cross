@@ -6,7 +6,7 @@ class MuslCross < Formula
   homepage "https://github.com/richfelker/musl-cross-make"
   url "https://github.com/richfelker/musl-cross-make/archive/refs/tags/v0.9.9.tar.gz"
   sha256 "ff3e2188626e4e55eddcefef4ee0aa5a8ffb490e3124850589bcaf4dd60f5f04"
-  revision 2
+  revision 3
   head "https://github.com/richfelker/musl-cross-make.git"
 
   bottle do
@@ -26,6 +26,7 @@ class MuslCross < Formula
   option "with-powerpc-sf", "Build cross-compilers targeting powerpc-linux-muslsf"
   option "with-powerpc64", "Build cross-compilers targeting powerpc64-linux-musl"
   option "with-powerpc64le", "Build cross-compilers targeting powerpc64le-linux-musl"
+  option "with-riscv64", "Build cross-compilers targeting riscv64-linux-musl"
   option "without-aarch64", "Do not build cross-compilers targeting aarch64-linux-musl"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
@@ -107,6 +108,7 @@ class MuslCross < Formula
     targets.push "powerpc-linux-muslsf" if build.with? "powerpc-sf"
     targets.push "powerpc64-linux-musl" if build.with? "powerpc64"
     targets.push "powerpc64le-linux-musl" if build.with? "powerpc64le"
+    targets.push "riscv64-linux-musl" if build.with? "riscv64"
 
     (buildpath/"resources").mkpath
     resources.each do |resource|
@@ -166,5 +168,6 @@ class MuslCross < Formula
     system "#{bin}/powerpc-linux-muslsf-cc", (testpath/"hello.c") if build.with? "powerpc-sf"
     system "#{bin}/powerpc64-linux-musl-cc", (testpath/"hello.c") if build.with? "powerpc64"
     system "#{bin}/powerpc64le-linux-musl-cc", (testpath/"hello.c") if build.with? "powerpc64le"
+    system "#{bin}/riscv64-linux-musl-cc", (testpath/"hello.c") if build.with? "riscv64"
   end
 end
