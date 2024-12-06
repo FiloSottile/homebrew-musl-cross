@@ -93,6 +93,11 @@ class MuslCross < Formula
     sha256 "01b2e0e11aeb33db5d8988d42a517828911601227238d8e7d5d7db8364486c26"
   end
 
+  patch do # Remove redefinitions of toupper etc. in gcc source code
+    url "https://github.com/greatbridf/musl-cross-make/commit/a812bac.patch?full_index=1"
+    sha256 "9c54647bf9e82b35f12908200804a053ab60fa5358a0dddd77cfba4b40183823"
+  end
+
   def install
     targets = []
     targets.push "x86_64-linux-musl" if build.with? "x86_64"
