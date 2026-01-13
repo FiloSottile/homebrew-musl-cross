@@ -6,7 +6,7 @@ class MuslCross < Formula
   homepage "https://github.com/richfelker/musl-cross-make"
   url "https://github.com/richfelker/musl-cross-make/archive/refs/tags/v0.9.9.tar.gz"
   sha256 "ff3e2188626e4e55eddcefef4ee0aa5a8ffb490e3124850589bcaf4dd60f5f04"
-  revision 2
+  revision 3
   head "https://github.com/richfelker/musl-cross-make.git"
 
   bottle do
@@ -26,6 +26,7 @@ class MuslCross < Formula
   option "with-powerpc-sf", "Build cross-compilers targeting powerpc-linux-muslsf"
   option "with-powerpc64", "Build cross-compilers targeting powerpc64-linux-musl"
   option "with-powerpc64le", "Build cross-compilers targeting powerpc64le-linux-musl"
+  option "with-riscv64", "Build cross-compilers targeting riscv64-linux-musl"
   option "without-aarch64", "Do not build cross-compilers targeting aarch64-linux-musl"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
@@ -92,6 +93,11 @@ class MuslCross < Formula
     sha256 "01b2e0e11aeb33db5d8988d42a517828911601227238d8e7d5d7db8364486c26"
   end
 
+  patch do # Remove redefinitions of toupper etc. in gcc source code
+    url "https://github.com/greatbridf/musl-cross-make/commit/a812bac.patch?full_index=1"
+    sha256 "9c54647bf9e82b35f12908200804a053ab60fa5358a0dddd77cfba4b40183823"
+  end
+
   def install
     targets = []
     targets.push "x86_64-linux-musl" if build.with? "x86_64"
@@ -107,6 +113,7 @@ class MuslCross < Formula
     targets.push "powerpc-linux-muslsf" if build.with? "powerpc-sf"
     targets.push "powerpc64-linux-musl" if build.with? "powerpc64"
     targets.push "powerpc64le-linux-musl" if build.with? "powerpc64le"
+    targets.push "riscv64-linux-musl" if build.with? "riscv64"
 
     (buildpath/"resources").mkpath
     resources.each do |resource|
@@ -166,5 +173,6 @@ class MuslCross < Formula
     system "#{bin}/powerpc-linux-muslsf-cc", (testpath/"hello.c") if build.with? "powerpc-sf"
     system "#{bin}/powerpc64-linux-musl-cc", (testpath/"hello.c") if build.with? "powerpc64"
     system "#{bin}/powerpc64le-linux-musl-cc", (testpath/"hello.c") if build.with? "powerpc64le"
+    system "#{bin}/riscv64-linux-musl-cc", (testpath/"hello.c") if build.with? "riscv64"
   end
 end
