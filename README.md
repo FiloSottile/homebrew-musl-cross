@@ -3,9 +3,7 @@
 **One-click static-friendly musl-based GCC macOS-to-Linux cross-compilers**
 based on [richfelker/musl-cross-make](https://github.com/richfelker/musl-cross-make).
 
-```
-brew install filosottile/musl-cross/musl-cross
-```
+    brew install filosottile/musl-cross/musl-cross
 
 By default it will install full cross compiler toolchains targeting musl Linux
 amd64, arm64, and arm.
