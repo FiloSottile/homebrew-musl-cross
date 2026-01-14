@@ -6,7 +6,7 @@ class MuslCross < Formula
   homepage "https://github.com/richfelker/musl-cross-make"
   url "https://github.com/richfelker/musl-cross-make/archive/refs/tags/v0.9.11.tar.gz"
   sha256 "306a66dd175d1065e6075deea02300d02e17806fb0a4d6f5e5829cf07c16eb51"
-  head "https://github.com/richfelker/musl-cross-make.git"
+  head "https://github.com/richfelker/musl-cross-make.git", branch: "master"
 
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
