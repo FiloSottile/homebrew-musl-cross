@@ -8,6 +8,13 @@ class MuslCross < Formula
   sha256 "306a66dd175d1065e6075deea02300d02e17806fb0a4d6f5e5829cf07c16eb51"
   head "https://github.com/richfelker/musl-cross-make.git", branch: "master"
 
+  bottle do
+    root_url "https://github.com/FiloSottile/homebrew-musl-cross/releases/download/musl-cross-0.9.11"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f4eb08b16a67818f6cec628cb7ac021c46110250b9a5d1813b35926b63d42d3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f890cd1c71d28a99ae1c9b23f8afc3da1249b8d376eac8218f41e8fb3926f335"
+  end
+
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
   option "with-mips", "Build cross-compilers targeting mips-linux-musl"
