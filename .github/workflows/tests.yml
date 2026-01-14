@@ -1,0 +1,32 @@
+name: brew test-bot
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  test-bot:
+    strategy:
+      matrix:
+        os: [ macos-15-intel, macos-15, macos-26 ]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      actions: read
+      checks: read
+      contents: read
+      pull-requests: read
+    steps:
+      - id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: brew test-bot --only-cleanup-before
+      - run: brew test-bot --only-setup
+      - run: brew test-bot --only-tap-syntax
+      - run: brew test-bot --only-formulae
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bottles_${{ matrix.os }}
+          path: '*.bottle.*'

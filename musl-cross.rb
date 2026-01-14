@@ -8,7 +8,6 @@ class MuslCross < Formula
   sha256 "306a66dd175d1065e6075deea02300d02e17806fb0a4d6f5e5829cf07c16eb51"
   head "https://github.com/richfelker/musl-cross-make.git"
 
-  option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
   option "with-mips", "Build cross-compilers targeting mips-linux-musl"
@@ -20,6 +19,7 @@ class MuslCross < Formula
   option "with-powerpc64", "Build cross-compilers targeting powerpc64-linux-musl"
   option "with-powerpc64le", "Build cross-compilers targeting powerpc64le-linux-musl"
   option "with-riscv64", "Build cross-compilers targeting riscv64-linux-musl"
+  option "without-arm-hf", "Do not build cross-compilers targeting arm-linux-musleabihf"
   option "without-aarch64", "Do not build cross-compilers targeting aarch64-linux-musl"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
