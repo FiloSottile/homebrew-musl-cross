@@ -40,7 +40,9 @@ brew install filosottile/musl-cross/musl-cross --build-from-source \
     --without-x86_64 --without-aarch64 --with-arm-hf
 ```
 
-(Note: a custom build takes around ten minutes per architecture on an M2.
+Run `brew options filosottile/musl-cross/musl-cross` to see all available architectures.
+
+(Note: a custom build takes around ten minutes per architecture on an M2 MacBook Air.
 The installed size is between 150MB and 300MB per architecture.)
 
 If you encounter issues with a missing `musl-gcc` binary, the build system might
